@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAX PRODUCT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-white text-gray-900 pt-20">
+    
+    <!-- Header -->
+    <header class="w-full fixed top-0 left-0 bg-red-500 p-4 shadow-lg z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center space-x-4">
+                <img src="/MAX.png" alt="MAX Logo" class="h-16 drop-shadow-2xl">
+                <button id="menuToggle" class="sm:hidden text-white text-2xl">☰</button>
+            </div>
+            <nav class="hidden sm:flex space-x-6 text-white font-semibold text-lg" id="navMenu">
+                <a href="#" class="hover:text-gray-200" data-lang="home">หน้าหลัก</a>
+                <a href="#" class="hover:text-gray-200" data-lang="about">เกี่ยวกับเรา</a>
+                <a href="#" class="hover:text-gray-200" data-lang="blog">บทความ</a>
+                <a href="#" class="hover:text-gray-200" data-lang="contact">ติดต่อเรา</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="text-center py-16 px-6">
+        <h1 class="text-5xl font-bold text-red-700 drop-shadow-[2px_2px_0px_black]" data-lang="title">MAX-PRODUCT</h1>
+        <p class="text-lg mt-4 text-gray-700" data-lang="subtitle">ให้คำปรึกษาด้านการใช้ยากุ้ง</p>
+    </section>
+    
+    <!-- Product Section -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 text-center">
+        <div class="p-6 bg-black shadow-md rounded-lg hover:scale-105 transition">
+            <p class="font-bold text-white" data-lang="buy">สั่งซื้อยา</p>
+        </div>
+        <div class="p-6 bg-black shadow-md rounded-lg hover:scale-105 transition">
+            <p class="font-bold text-white" data-lang="buy">สั่งซื้อยา</p>
+        </div>
+        <div class="p-6 bg-black shadow-md rounded-lg hover:scale-105 transition">
+            <p class="font-bold text-white" data-lang="buy">สั่งซื้อยา</p>
+        </div>
+        <div class="p-6 bg-black shadow-md rounded-lg hover:scale-105 transition">
+            <p class="font-bold text-white" data-lang="buy">สั่งซื้อยา</p>
+        </div>
+    </section>
+    
+    <!-- Image Section -->
+    <section class="container mx-auto flex justify-center mt-10 px-4">
+        <img src="/images.jpg" alt="สัตว์เลี้ยง" class="rounded-lg shadow-md w-full max-w-2xl">
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-6 mt-10 bg-gray-900 text-white">
+        <p data-lang="footer">&copy; 2025 Pet Med+. All rights reserved.</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        const translations = {
+            en: {
+                home: "Home",
+                about: "About Us",
+                blog: "Blog",
+                contact: "Contact Us",
+                title: "MAX-PRODUCT",
+                subtitle: "Consulting on Shrimp Medicine",
+                buy: "Buy Medicine",
+                footer: "&copy; 2025 Pet Med+. All rights reserved."
+            },
+            th: {
+                home: "หน้าหลัก",
+                about: "เกี่ยวกับเรา",
+                blog: "บทความ",
+                contact: "ติดต่อเรา",
+                title: "MAX-PRODUCT",
+                subtitle: "ให้คำปรึกษาด้านการใช้ยากุ้ง",
+                buy: "สั่งซื้อยา",
+                footer: "&copy; 2025 Pet Med+. สงวนลิขสิทธิ์"
+            }
+        };
+        
+        document.getElementById("languageSelect").addEventListener("change", function () {
+            const selectedLang = this.value;
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                const key = el.getAttribute("data-lang");
+                el.innerHTML = translations[selectedLang][key];
+            });
+        });
+        
+        document.getElementById("menuToggle").addEventListener("click", function () {
+            document.getElementById("navMenu").classList.toggle("hidden");
+        });
+    </script>
+    
+</body>
+</html>
